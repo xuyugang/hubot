@@ -8,7 +8,7 @@ chai.use require 'sinon-chai'
 mockery = require 'mockery'
 
 # Hubot classes
-Robot = require '../src/robot.coffee'
+Robot = require '../src/robot'
 { CatchAllMessage, EnterMessage, LeaveMessage, TextMessage, TopicMessage } = require '../src/message'
 Adapter = require '../src/adapter'
 
