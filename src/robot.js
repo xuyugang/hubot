@@ -340,9 +340,10 @@ class Robot {
           anyListenersExecuted = anyListenersExecuted || listenerExecuted
           // Defer to the event loop at least after every listener so the
           // stack doesn't get too big
-          return Middleware.ticker(() =>
-          // Stop processing when message.done == true
-          cb(context.response.message.done))
+          return process.nextTick(() =>
+            // Stop processing when message.done == true
+            cb(context.response.message.done)
+          )
         })
       } catch (err) {
         this.emit('error', err, new this.Response(this, context.response.message, []))
